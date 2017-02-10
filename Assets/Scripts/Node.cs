@@ -11,10 +11,14 @@ public class Node : MonoBehaviour {
     public string url;
     //tiene un array de escalares y un array de labels, por ahora seran omitidos
     //quiz estos no deban ser nodes, sino, solo nobres los ides;
+    //quiz esto deberian ser pares de un tipo int, float; nodo distancia, editar despues
+    //el padre seria un par de esos, y los hijos estarian en una lista
     public int parent;
+    public float parentDistance;
     public int son1;//quiz deba ser un arreglo de hijos
     public int son2;
     public List<int> sons;
+    public List<float> sonsDistance;
     public string title;
     public string filename;
     void Start () {
