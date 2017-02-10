@@ -22,3 +22,4 @@ public class AplicationControler : MonoBehaviour {
 //reemplazar las listas por arboles
 
 //esta visualización, creaara nodos para para cada scprior node.cs, esos scripts no seran herencia de monobehaviour
+//es decir node.cs tendra instancis del gameobject Node, de esta foma cada uno de esos scripts instanciara su respectivo nodo
