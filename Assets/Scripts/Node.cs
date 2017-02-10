@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Node : MonoBehaviour {
+public class Node {
 
     public int id;
     public bool valid;
@@ -21,6 +21,7 @@ public class Node : MonoBehaviour {
     public List<float> sonsDistance;
     public string title;
     public string filename;
+    public GameObject esfera;
     void Start () {
     
     }

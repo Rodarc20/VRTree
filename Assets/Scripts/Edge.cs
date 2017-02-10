@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Edge : MonoBehaviour{
+public class Edge {
     public int source;
     public int target;
     public float length;

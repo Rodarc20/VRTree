@@ -4,15 +4,33 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 
 public class AplicationControler : MonoBehaviour {
-    List<Node> nodos;
-    List<Edge> aristas;
+    [HideInInspector] public List<Node> nodos;
+    [HideInInspector] public List<Edge> aristas;
+    public GameObject node;
+    public XmlLoader xmlLoader;
     GameObject board;//espacio sobre el que estaran los nodos, que en cierto modo, este script estara en ese objeto
 
-    void start(){
-         
-
+    void Start(){
+        xmlLoader = GetComponent<XmlLoader>();
+        if(xmlLoader){
+            nodos = xmlLoader.nodos;
+            aristas = xmlLoader.aristas;
+            print("cargado");
+        }
+        else{
+            print("no");
+        }
+        print(nodos.Count);//esto deberi cargarse despues de que cmloadr cumpla su funcion
+        //Vertexs();
     }
-    void update(){
+    void Vertexs(){
+       foreach(Node nodo in nodos){
+            GameObject obj = Instantiate(node, new Vector3(nodo.x, nodo.y, 0f), transform.rotation) as GameObject;
+            nodo.esfera = obj;
+        }
+    }
+    
+    void Update(){
 
     }
 

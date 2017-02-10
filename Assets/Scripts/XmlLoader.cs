@@ -7,10 +7,10 @@ using System.IO;
 public class XmlLoader : MonoBehaviour {
     private string fileName;
     private XmlDocument xmlDoc;
-    private List<Node> nodos;
-    private List<Edge> aristas;
+    [HideInInspector] public List<Node> nodos;
+    [HideInInspector] public List<Edge> aristas;
     // Use this for initialization
-    void loadXML(){
+    public void loadXML(){
         xmlDoc = new XmlDocument();
         if(System.IO.File.Exists(getPath())){
             xmlDoc.LoadXml(System.IO.File.ReadAllText(getPath()));
@@ -32,7 +32,7 @@ public class XmlLoader : MonoBehaviour {
         #endif
     }
 
-    void loadVertexs(){
+    public List<Node> loadVertexs(){
         //primero crear los nodos
         //parseo de todos los nodos
         XmlNodeList vertexs = xmlDoc.GetElementsByTagName("vertex");
@@ -40,11 +40,11 @@ public class XmlLoader : MonoBehaviour {
             //parseo de un nodo
             Node nodo = new Node();//esto no se puede si es una herencia de monobehavior, en su defecto debo buscar otra cosa
             nodo.id = int.Parse(vertex.GetAttribute("id"));
-            print(nodo.id);
+            //print(nodo.id);
             XmlNode val = vertex.SelectSingleNode("valid");
             //print(val.Attributes["value"].InnerXml);
             nodo.valid = val.Attributes["value"].InnerXml == "1";//funciona pere debe haber una mejor forma
-            print(nodo.valid);
+            //print(nodo.valid);
             XmlNode xpos = vertex.SelectSingleNode("x-coordinate");
             nodo.x = float.Parse(xpos.Attributes["value"].InnerXml);//funciona pere debe haber una mejor forma
             XmlNode ypos = vertex.SelectSingleNode("y-coordinate");
@@ -67,11 +67,11 @@ public class XmlLoader : MonoBehaviour {
             //imprimir cada nodo para ver el resultado
             nodos.Add(nodo);
         }
-
-
+        print("loadVertexs");
+        return nodos;
     }
 
-    void loadEdges(){
+    public List<Edge> loadEdges(){
         XmlNodeList edges = xmlDoc.GetElementsByTagName("edge");
         foreach(XmlElement arista in edges){
             Edge edge = new Edge();
@@ -79,9 +79,11 @@ public class XmlLoader : MonoBehaviour {
             edge.target = int.Parse(arista.GetAttribute("target"));
             edge.length = float.Parse(arista.GetAttribute("length"));
             aristas.Add(edge);
-            print(edge.source);
-            print(edge.target);
+            //print(edge.source);
+            //print(edge.target);
         }
+        print("loadEdges");
+        return aristas;
     }
     void Start () {
         fileName = "cbr-ilp-ir-son.xml";
