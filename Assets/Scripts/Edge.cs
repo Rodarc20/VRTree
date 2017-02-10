@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Egde : MonoBehaviour{
-    int source;
-    int target;
-    float distance;
+public class Edge : MonoBehaviour{
+    public int source;
+    public int target;
+    public float length;
     void start(){
 
     }
@@ -11,3 +11,5 @@ public class Egde : MonoBehaviour{
 
     }
 }
+
+//agregar getters y setters
