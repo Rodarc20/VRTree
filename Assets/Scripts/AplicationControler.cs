@@ -74,3 +74,8 @@ public class AplicationControler : MonoBehaviour {
 
 //esta visualización, creaara nodos para para cada scprior node.cs, esos scripts no seran herencia de monobehaviour
 //es decir node.cs tendra instancis del gameobject Node, de esta foma cada uno de esos scripts instanciara su respectivo nodo
+
+//para la interaccion, tomar como ejemplo lo de survival shooter
+//para esto debo crear un area en la que el raycas que proviene del mouse golpee, esta area entrara en usoa cuadno este arrastrando un nodo.
+//pero para detectar que estoy ssuperponiendo el mouse en un nodo, entonces, usare el mismo raycast, pero esta vez collisionara con los nodos, algo como los disparos a los enemigos.
+//entre estos dos modos, lo unico que varia es si tengo presionado el boton y si obviamente si colisiono con un nodo.
