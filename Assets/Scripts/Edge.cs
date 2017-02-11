@@ -14,3 +14,4 @@ public class Edge {
 }
 
 //agregar getters y setters
+//debo traladar las funcioenes update a otro script que ira como componetn del objeto linea, este sera enccargado de rastrea la posicion del nodo que se necestia

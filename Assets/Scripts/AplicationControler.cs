@@ -13,10 +13,20 @@ public class AplicationControler : MonoBehaviour {
     public Material nodeInvalid;
     public XmlLoader xmlLoader;
     GameObject board;//espacio sobre el que estaran los nodos, que en cierto modo, este script estara en ese objeto
+    int boardMask;
+    int moveMask;
+    Ray pointerRay;
+    RaycastHit pointerRayHit;
+    float rayRange = 2000f;//este se deberia calcular solo en base a la cantidad de nodos
     public float maxY = 0;
     public float maxX = 0;
+    Transform nodeSelected;//node seleccionado
+    bool selectedNode;
 
     void Start(){
+        selectedNode = false;
+        boardMask = LayerMask.GetMask("Board");
+        moveMask = LayerMask.GetMask("Move");
         xmlLoader = GetComponent<XmlLoader>();
         if(xmlLoader){
             nodos = xmlLoader.nodos;
@@ -63,8 +73,28 @@ public class AplicationControler : MonoBehaviour {
             arista.linea.transform.SetParent(transform);//se puede quitar
         }
     }
-    void Update(){
 
+    void Update(){
+        if(Input.GetButtonDown("Fire1") && !selectedNode){//aqui debo detectar si ha dado click sobre algun nodo
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(camRay, out hit, rayRange, moveMask)){
+                nodeSelected = hit.collider.GetComponent<Transform>();
+                selectedNode = true;
+                print("Nodo seleccionado");
+            }
+        }
+        else if(Input.GetButton("Fire1") && selectedNode){//aqui debo verificar que haya seleccionado algun nodo, y cambiar la posicion de ese nodo, a la posicion dl cursor
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(camRay, out hit, rayRange, boardMask)){
+                nodeSelected.position = hit.point;
+            }
+        }
+        else if(Input.GetButtonUp("Fire1") && selectedNode){//aqui debo dejar de actualizr los nodos
+            selectedNode = false;
+            nodeSelected = null;
+        }
     }
 
 }
@@ -79,3 +109,8 @@ public class AplicationControler : MonoBehaviour {
 //para esto debo crear un area en la que el raycas que proviene del mouse golpee, esta area entrara en usoa cuadno este arrastrando un nodo.
 //pero para detectar que estoy ssuperponiendo el mouse en un nodo, entonces, usare el mismo raycast, pero esta vez collisionara con los nodos, algo como los disparos a los enemigos.
 //entre estos dos modos, lo unico que varia es si tengo presionado el boton y si obviamente si colisiono con un nodo.
+//el traslado de lo nodos debe arrastra tod la rama, es decir a sus descendientes. para ello debo conservar el vector, de desplazamiento
+//y aplicarlo a cada nodo de la rama, para ello seria apropiado sonservar la estructur o recorrer todos lo nodos hijos, en este caso me conviene que el gameObject
+//tenga un script con esa información
+//luego desde este scrpt hacer una modificaióñ recursiva o iterativa.
+//en la estrcutura o usando la lista, ya que esta ordenada como deberia estar, el problema son las aristas
