@@ -67,25 +67,28 @@ public class XmlLoader : MonoBehaviour {
             //imprimir cada nodo para ver el resultado
             nodos.Add(nodo);
         }
-        print("loadVertexs");
         return nodos;
     }
 
     public List<Edge> loadEdges(){
-        XmlNodeList edges = xmlDoc.GetElementsByTagName("edge");
-        foreach(XmlElement arista in edges){
-            Edge edge = new Edge();
-            edge.source = int.Parse(arista.GetAttribute("source"));
-            edge.target = int.Parse(arista.GetAttribute("target"));
-            edge.length = float.Parse(arista.GetAttribute("length"));
-            aristas.Add(edge);
-            //print(edge.source);
-            //print(edge.target);
+        XmlNodeList edgesCollection = xmlDoc.GetElementsByTagName("edges");
+        foreach (XmlElement item in edgesCollection) {
+            if(item.GetAttribute("name") == "NJ"){
+                XmlNodeList edges = item.GetElementsByTagName("edge");
+                foreach(XmlElement arista in edges){
+                    Edge edge = new Edge();
+                    edge.source = int.Parse(arista.GetAttribute("source"));
+                    edge.target = int.Parse(arista.GetAttribute("target"));
+                    edge.length = float.Parse(arista.GetAttribute("length"));
+                    aristas.Add(edge);
+                    //print(edge.source);
+                    //print(edge.target);
+                }
+            }
         }
-        print("loadEdges");
         return aristas;
     }
-    void Start () {
+    void Awake () {
         fileName = "cbr-ilp-ir-son.xml";
         nodos = new List<Node>();
         aristas = new List<Edge>();
