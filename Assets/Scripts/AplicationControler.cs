@@ -7,6 +7,7 @@ public class AplicationControler : MonoBehaviour {
     [HideInInspector] public List<Node> nodos;
     [HideInInspector] public List<Edge> aristas;
     public GameObject node;
+    public GameObject nodeI;
     public GameObject edge;
     public Material nodeValid;
     public Material nodeInvalid;
@@ -32,14 +33,17 @@ public class AplicationControler : MonoBehaviour {
     }
     void Vertexs(){
        foreach(Node nodo in nodos){
-            GameObject obj = Instantiate(node, new Vector3(nodo.x, -1*nodo.y, 0f), transform.rotation) as GameObject;
-            nodo.esfera = obj;
-            nodo.esfera.transform.SetParent(transform);//se puede quitar
             if(nodo.valid){
-                nodo.esfera.GetComponent<Renderer>().material = nodeValid;
+                GameObject obj = Instantiate(node, new Vector3(nodo.x, -1*nodo.y, 0f), transform.rotation) as GameObject;
+                nodo.esfera = obj;
+                nodo.esfera.transform.SetParent(transform);//se puede quitar
+                //nodo.esfera.GetComponent<Renderer>().material = nodeValid;
             }
             else{
-                nodo.esfera.GetComponent<Renderer>().material = nodeInvalid;
+                GameObject obj = Instantiate(nodeI, new Vector3(nodo.x, -1*nodo.y, 0f), transform.rotation) as GameObject;
+                nodo.esfera = obj;
+                nodo.esfera.transform.SetParent(transform);//se puede quitar
+                //nodo.esfera.GetComponent<Renderer>().material = nodeInvalid;
             }
             if(nodo.x > maxX)
                 maxX = nodo.x;
