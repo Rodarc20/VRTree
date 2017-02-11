@@ -7,8 +7,8 @@ using System.IO;
 public class XmlLoader : MonoBehaviour {
     private string fileName;
     private XmlDocument xmlDoc;
-    private List<Node> nodos;
-    private List<Edge> aristas;
+    [HideInInspector] public List<Node> nodos;
+    [HideInInspector] public List<Edge> aristas;
     // Use this for initialization
     void loadXML(){
         xmlDoc = new XmlDocument();

@@ -21,6 +21,7 @@ public class Node : MonoBehaviour {
     public List<float> sonsDistance;
     public string title;
     public string filename;
+    public GameObject esfera;
     void Start () {
     
     }
