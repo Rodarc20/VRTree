@@ -55,6 +55,7 @@ public class AplicationControler : MonoBehaviour {
                 nodo.esfera.transform.SetParent(transform);//se puede quitar
                 //nodo.esfera.GetComponent<Renderer>().material = nodeInvalid;
             }
+            nodo.CopyTo();
             if(nodo.x > maxX)
                 maxX = nodo.x;
             if(nodo.y > maxY)
@@ -75,6 +76,7 @@ public class AplicationControler : MonoBehaviour {
     }
 
     void Update(){
+        //esto es el arrastre, este arrastre se debe aplicar a cada nodo
         if(Input.GetButtonDown("Fire1") && !selectedNode){//aqui debo detectar si ha dado click sobre algun nodo
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -88,7 +90,11 @@ public class AplicationControler : MonoBehaviour {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(camRay, out hit, rayRange, boardMask)){
-                nodeSelected.position = hit.point;
+                Vector3 traslacion = hit.point - nodeSelected.position;
+                //nodeSelected.position = hit.point;
+                //nodeSelected.Translate(traslacion);
+                //print(nodeSelected.GetComponent<Nodo>().id);
+                trasladarRama(nodeSelected.GetComponent<Nodo>().id, traslacion);
             }
         }
         else if(Input.GetButtonUp("Fire1") && selectedNode){//aqui debo dejar de actualizr los nodos
@@ -97,7 +103,23 @@ public class AplicationControler : MonoBehaviour {
         }
     }
 
+    public void trasladarRama(int idNodo, Vector3 traslacion){//usar un bfs// paa esta funcion quiza solo necestio el indice, este indice se obtiene del script Nodo de la esfera, de alli debo sacar el id
+        //print(traslacion);
+        //usar el arreglo de Nodes, y solo acceder a las esferas y a su transform
+        Queue<int> cola = new Queue<int>();
+        cola.Enqueue(idNodo);
+        while(cola.Count != 0){
+            idNodo = cola.Dequeue();
+            nodos[idNodo].esfera.transform.Translate(traslacion);
+            foreach (int item in nodos[idNodo].sons) {
+                cola.Enqueue(item);
+            }
+        }
+    }
+
+
 }
+
 //este script debe estar ligado al de carga del xml para poder recibir la lista d nodos y aristas
 //node no pertenece a unas instancion de un gameObject
 //reemplazar las listas por arboles
