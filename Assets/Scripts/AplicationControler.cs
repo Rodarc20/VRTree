@@ -66,11 +66,12 @@ public class AplicationControler : MonoBehaviour {
     void Edges(){
         foreach(Edge arista in aristas){
             GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
-            //obj.GetComponent<LineRenderer>().SetPosition(0, new Vector3(nodos[arista.source].x, -1*nodos[arista.source].y, 0f));
-            //obj.GetComponent<LineRenderer>().SetPosition(1, new Vector3(nodos[arista.target].x, -1*nodos[arista.target].y, 0f));
-            obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
-            obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
-            arista.linea = obj;
+            arista.linea = obj;//esta linea es el objeto dentro del escript Edge
+            arista.linea.GetComponent<Arista>().sourceT = nodos[arista.source].esfera.transform;
+            arista.linea.GetComponent<Arista>().targetT = nodos[arista.target].esfera.transform;
+            //arista.linea.GetComponent<Arista>().ActualizarPuntos();
+            //obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
+            //obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
             arista.linea.transform.SetParent(transform);//se puede quitar
         }
     }
