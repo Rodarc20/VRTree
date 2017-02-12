@@ -11,7 +11,7 @@ public class AplicationControler : MonoBehaviour {
     public GameObject edge;
     public Material nodeValid;
     public Material nodeInvalid;
-    public XmlLoader xmlLoader;
+    [HideInInspector] public XmlLoader xmlLoader;
     GameObject board;//espacio sobre el que estaran los nodos, que en cierto modo, este script estara en ese objeto
     int boardMask;
     int moveMask;
@@ -21,7 +21,7 @@ public class AplicationControler : MonoBehaviour {
     public float maxY = 0;
     public float maxX = 0;
     Transform nodeSelected;//node seleccionado
-    bool selectedNode;
+    bool selectedNode;//para controlar si hay algun nodo seleccionado
 
     void Start(){
         selectedNode = false;

@@ -16,7 +16,7 @@ public class XmlLoader : MonoBehaviour {
             xmlDoc.LoadXml(System.IO.File.ReadAllText(getPath()));
         }
         else{
-            TextAsset textXml = (TextAsset)Resources.Load(fileName, typeof(TextAsset));
+            TextAsset textXml = (TextAsset)Resources.Load("cbr-ilp-ir-son", typeof(TextAsset));
             xmlDoc.LoadXml(textXml.text);
         }
     }
@@ -29,6 +29,7 @@ public class XmlLoader : MonoBehaviour {
         return GetiPhoneDocumentsPath()+"/"+fileName;
         #else
         return Application.dataPath +"/"+ fileName;
+        //return "cbr-ilp-ir-son";
         #endif
     }
 
