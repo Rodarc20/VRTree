@@ -64,17 +64,23 @@ public class AplicationControler : MonoBehaviour {
     }
     
     void Edges(){
+        int i = 0;
         foreach(Edge arista in aristas){
             GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
             arista.linea = obj;//esta linea es el objeto dentro del escript Edge
+            arista.CopyTo();
             arista.linea.GetComponent<Arista>().sourceT = nodos[arista.source].esfera.transform;
             arista.linea.GetComponent<Arista>().targetT = nodos[arista.target].esfera.transform;
+            nodos[arista.target].esfera.GetComponent<Nodo>().orden = i;
+            nodos[arista.target].esfera.GetComponent<Nodo>().mostrarTexto();
             //arista.linea.GetComponent<Arista>().ActualizarPuntos();
             //obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
             //obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
             arista.linea.transform.SetParent(transform);//se puede quitar
+            i++;
         }
     }
+    //problema con nodo 9222, parece ser el ultimo, o al menos el nunca aparece como hijo de nadie, segun estas aristas, por lo tanto siempre se queda como 5555
 
     void Update(){
         //esto es el arrastre, este arrastre se debe aplicar a cada nodo

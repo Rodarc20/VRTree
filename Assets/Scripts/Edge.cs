@@ -5,6 +5,11 @@ public class Edge {
     public int target;
     public float length;
     public GameObject linea;   
+    public void CopyTo(){
+        Arista lineaArista = linea.GetComponent<Arista>();
+        lineaArista.source = source;
+        lineaArista.target = target;
+    }
 }
 
 //agregar getters y setters
