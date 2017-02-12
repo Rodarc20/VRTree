@@ -27,3 +27,4 @@ public class Nodo : MonoBehaviour {
     }
 }
 //este script va en cada objeto nodo, tambien se usara como si fuera los elementos de la estructura de datos
+//reducir a los datos strictamente necesarios, por ahora solo el id

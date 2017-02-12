@@ -5,12 +5,6 @@ public class Edge {
     public int target;
     public float length;
     public GameObject linea;   
-    void start(){
-
-    }
-    void update(){
-
-    }
 }
 
 //agregar getters y setters
