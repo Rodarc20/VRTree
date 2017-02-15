@@ -22,6 +22,7 @@ public class AplicationControler : MonoBehaviour {
     public float maxX = 0;
     Transform nodeSelected;//node seleccionado
     bool selectedNode;//para controlar si hay algun nodo seleccionado
+    List<Transform> nodosAfectados;
 
     void Start(){
         selectedNode = false;
@@ -39,7 +40,8 @@ public class AplicationControler : MonoBehaviour {
         //print(nodos.Count);//esto deberi cargarse despues de que cmloadr cumpla su funcion
         Vertexs();
         transform.position = new Vector3 (-1*maxX/2, maxY/2, 0f);
-        Edges();
+        nodosAfectados = new List<Transform>();
+        //Edges();
     }
     void Vertexs(){
        foreach(Node nodo in nodos){
@@ -63,7 +65,7 @@ public class AplicationControler : MonoBehaviour {
         }
     }
     
-    void Edges(){
+    void Edges(){//usar el orden de los nodos, ya no los sdges del xml
         int i = 0;
         foreach(Edge arista in aristas){
             GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
@@ -82,13 +84,14 @@ public class AplicationControler : MonoBehaviour {
     }
     //problema con nodo 9222, parece ser el ultimo, o al menos el nunca aparece como hijo de nadie, segun estas aristas, por lo tanto siempre se queda como 5555
 
-    void Update(){
+    void FixedUpdate(){//no hay mucha diferencia si solo uso Update()
         //esto es el arrastre, este arrastre se debe aplicar a cada nodo
         if(Input.GetButtonDown("Fire1") && !selectedNode){//aqui debo detectar si ha dado click sobre algun nodo
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(camRay, out hit, rayRange, moveMask)){
                 nodeSelected = hit.collider.GetComponent<Transform>();
+                seleccionarNodosAfectados(nodeSelected.GetComponent<Nodo>().id);//para la segunda forma
                 selectedNode = true;
                 print("Nodo seleccionado");
             }
@@ -101,12 +104,14 @@ public class AplicationControler : MonoBehaviour {
                 //nodeSelected.position = hit.point;
                 //nodeSelected.Translate(traslacion);
                 //print(nodeSelected.GetComponent<Nodo>().id);
-                trasladarRama(nodeSelected.GetComponent<Nodo>().id, traslacion);
+                //trasladarRama(nodeSelected.GetComponent<Nodo>().id, traslacion);//forma 1
+                aplicarTraslacion(traslacion);//forma2
             }
         }
         else if(Input.GetButtonUp("Fire1") && selectedNode){//aqui debo dejar de actualizr los nodos
             selectedNode = false;
             nodeSelected = null;
+            nodosAfectados.Clear();//modificacion a 2 
         }
     }
 
@@ -123,7 +128,23 @@ public class AplicationControler : MonoBehaviour {
             }
         }
     }
-
+    public void seleccionarNodosAfectados(int idNodo){
+        //nodosAfectados = new List<Transform> ();
+        Queue<int> cola = new Queue<int>();
+        cola.Enqueue(idNodo);
+        while(cola.Count != 0){
+            idNodo = cola.Dequeue();
+            nodosAfectados.Add(nodos[idNodo].esfera.transform);
+            foreach (int item in nodos[idNodo].sons) {
+                cola.Enqueue(item);
+            }
+        }
+    }
+    public void aplicarTraslacion(Vector3 traslacion){
+        foreach(Transform t in nodosAfectados){
+            t.Translate(traslacion);
+        }
+    }
 
 }
 
