@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Nodo : MonoBehaviour {
 
     public int id;
-    public int orden;
     public bool valid;
     //public float x;//este
     //public float y;
@@ -30,7 +29,7 @@ public class Nodo : MonoBehaviour {
     public void mostrarTexto(){//como este script tiene , los datos dentro, el texto lo debo generar de aqui;el unico dato que se llena al momento es el del orde, que podria recibirloen esta funion o no
         texto = GetComponentInChildren<Text>();
         if(texto){
-            string s =  id + " (" + orden + ")";
+            string s =  id.ToString();
             texto.text = s;
         }
     }

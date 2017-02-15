@@ -62,43 +62,20 @@ public class AplicationControler : MonoBehaviour {
                 maxX = nodo.x;
             if(nodo.y > maxY)
                 maxY = nodo.y;
-            //aristas
+            //aristas//debe ser en otra funcion por que aun no estan todos los vertices instancias, para obtener sus transform
         }
     }
     
     void Edges(){//usar el orden de los nodos, ya no los sdges del xml
-        int i = 0;
-        foreach(Edge arista in aristas){
-            GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
-            arista.linea = obj;//esta linea es el objeto dentro del escript Edge
-            arista.CopyTo();
-            arista.linea.GetComponent<Arista>().sourceT = nodos[arista.source].esfera.transform;
-            arista.linea.GetComponent<Arista>().targetT = nodos[arista.target].esfera.transform;
-            nodos[arista.target].esfera.GetComponent<Nodo>().orden = i;
-            nodos[arista.target].esfera.GetComponent<Nodo>().mostrarTexto();
-            //arista.linea.GetComponent<Arista>().ActualizarPuntos();
-            //obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
-            //obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
-            arista.linea.transform.SetParent(transform);//se puede quitar
-            i++;
-        }
-    }
-    //problema con nodo 9222, parece ser el ultimo, o al menos el nunca aparece como hijo de nadie, segun estas aristas, por lo tanto siempre se queda como 5555
-    void Edges2(){//usar el orden de los nodos, ya no los sdges del xml
-        int i = 0;
-        foreach(Edge arista in aristas){
-            GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
-            arista.linea = obj;//esta linea es el objeto dentro del escript Edge
-            arista.CopyTo();
-            arista.linea.GetComponent<Arista>().sourceT = nodos[arista.source].esfera.transform;
-            arista.linea.GetComponent<Arista>().targetT = nodos[arista.target].esfera.transform;
-            nodos[arista.target].esfera.GetComponent<Nodo>().orden = i;
-            nodos[arista.target].esfera.GetComponent<Nodo>().mostrarTexto();
-            //arista.linea.GetComponent<Arista>().ActualizarPuntos();
-            //obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
-            //obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
-            arista.linea.transform.SetParent(transform);//se puede quitar
-            i++;
+        foreach(Node nodo in nodos) {
+            //habria que almacenar todas estas aristas en alguna estructura, para poder manipularlas o borrarlas o alguna otra cosa
+            foreach(int hijo in nodo.sons){
+                GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
+                obj.GetComponent<Arista>().sourceT = nodos[nodo.id].esfera.transform;
+                obj.GetComponent<Arista>().targetT = nodos[hijo].esfera.transform;
+                obj.transform.SetParent(transform);//se puede quitar
+            }
+            nodo.esfera.GetComponent<Nodo>().mostrarTexto();//esto debe estar en otro lado
         }
     }
 
@@ -134,7 +111,6 @@ public class AplicationControler : MonoBehaviour {
     }
 
     public void trasladarRama(int idNodo, Vector3 traslacion){//usar un bfs// paa esta funcion quiza solo necestio el indice, este indice se obtiene del script Nodo de la esfera, de alli debo sacar el id
-        //print(traslacion);
         //usar el arreglo de Nodes, y solo acceder a las esferas y a su transform
         Queue<int> cola = new Queue<int>();
         cola.Enqueue(idNodo);
