@@ -41,7 +41,7 @@ public class AplicationControler : MonoBehaviour {
         Vertexs();
         transform.position = new Vector3 (-1*maxX/2, maxY/2, 0f);
         nodosAfectados = new List<Transform>();
-        //Edges();
+        Edges();
     }
     void Vertexs(){
        foreach(Node nodo in nodos){
@@ -62,6 +62,7 @@ public class AplicationControler : MonoBehaviour {
                 maxX = nodo.x;
             if(nodo.y > maxY)
                 maxY = nodo.y;
+            //aristas
         }
     }
     
@@ -83,6 +84,23 @@ public class AplicationControler : MonoBehaviour {
         }
     }
     //problema con nodo 9222, parece ser el ultimo, o al menos el nunca aparece como hijo de nadie, segun estas aristas, por lo tanto siempre se queda como 5555
+    void Edges2(){//usar el orden de los nodos, ya no los sdges del xml
+        int i = 0;
+        foreach(Edge arista in aristas){
+            GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
+            arista.linea = obj;//esta linea es el objeto dentro del escript Edge
+            arista.CopyTo();
+            arista.linea.GetComponent<Arista>().sourceT = nodos[arista.source].esfera.transform;
+            arista.linea.GetComponent<Arista>().targetT = nodos[arista.target].esfera.transform;
+            nodos[arista.target].esfera.GetComponent<Nodo>().orden = i;
+            nodos[arista.target].esfera.GetComponent<Nodo>().mostrarTexto();
+            //arista.linea.GetComponent<Arista>().ActualizarPuntos();
+            //obj.GetComponent<LineRenderer>().SetPosition(0, nodos[arista.source].esfera.transform.position);//estos puntos son globales, no serve de nada cambiar parent
+            //obj.GetComponent<LineRenderer>().SetPosition(1, nodos[arista.target].esfera.transform.position);
+            arista.linea.transform.SetParent(transform);//se puede quitar
+            i++;
+        }
+    }
 
     void FixedUpdate(){//no hay mucha diferencia si solo uso Update()
         //esto es el arrastre, este arrastre se debe aplicar a cada nodo
