@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Threading;
 
 public class AplicationControler : MonoBehaviour {
     [HideInInspector] public List<Node> nodos;
@@ -31,7 +32,7 @@ public class AplicationControler : MonoBehaviour {
         xmlLoader = GetComponent<XmlLoader>();
         if(xmlLoader){
             nodos = xmlLoader.nodos;
-            aristas = xmlLoader.aristas;
+            //aristas = xmlLoader.aristas;
             print("cargado");
         }
         else{
@@ -63,6 +64,7 @@ public class AplicationControler : MonoBehaviour {
             if(nodo.y > maxY)
                 maxY = nodo.y;
             //aristas//debe ser en otra funcion por que aun no estan todos los vertices instancias, para obtener sus transform
+            nodo.esfera.GetComponent<Nodo>().mostrarTexto();//esto debe estar en otro lado
         }
     }
     
@@ -135,11 +137,18 @@ public class AplicationControler : MonoBehaviour {
         }
     }
     public void aplicarTraslacion(Vector3 traslacion){
-        foreach(Transform t in nodosAfectados){
+        /*foreach(Transform t in nodosAfectados){
             t.Translate(traslacion);
+        }*/
+        for(int i = 0; i < nodosAfectados.Count; i++){
+            nodosAfectados[i].Translate(traslacion);
         }
     }
+    /*public void aplicarTraslacion2(Vector3 traslacion){
 
+    }
+    public void aplicar(List<Transform> arregloNodos, int i, int j, Vector3 traslacion){}
+    */
 }
 
 //este script debe estar ligado al de carga del xml para poder recibir la lista d nodos y aristas

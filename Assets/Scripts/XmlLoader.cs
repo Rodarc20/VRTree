@@ -95,7 +95,7 @@ public class XmlLoader : MonoBehaviour {
         aristas = new List<Edge>();
         loadXML();
         loadVertexs();
-        loadEdges();
+        //loadEdges();
     }
     
     // Update is called once per frame
