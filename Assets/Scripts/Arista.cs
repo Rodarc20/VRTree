@@ -19,7 +19,7 @@ public class Arista : MonoBehaviour {
         ActualizarPuntos();//no se si siempre deba estar reemplazando, o solo deba hacer este cambio si hubiese cambiado algunos de los nodos
     }
     public void ActualizarPuntos(){//deberia verficar si los nodos cambiaron de posicion, si es asi recien actualizar, no se que tanto mejore solo esa comprobacion
-        if(lastPositionSource != sourceT.position){
+        if(lastPositionSource != sourceT.position){//esto se puede hacer de otra forma, o no hacerlo, no parece haber un impacto en el rendimiento
             linea.SetPosition(0, sourceT.position);
             lastPositionSource = sourceT.position;
         }

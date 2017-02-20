@@ -69,15 +69,12 @@ public class AplicationControler : MonoBehaviour {
     }
     
     void Edges(){//usar el orden de los nodos, ya no los sdges del xml
-        foreach(Node nodo in nodos) {
-            //habria que almacenar todas estas aristas en alguna estructura, para poder manipularlas o borrarlas o alguna otra cosa
-            foreach(int hijo in nodo.sons){
+        for(int i = 0; i < nodos.Count-1; i++){
                 GameObject obj = Instantiate(edge, transform.position, transform.rotation) as GameObject;
-                obj.GetComponent<Arista>().sourceT = nodos[nodo.id].esfera.transform;
-                obj.GetComponent<Arista>().targetT = nodos[hijo].esfera.transform;
+                obj.GetComponent<Arista>().sourceT = nodos[nodos[i].id].esfera.transform;
+                obj.GetComponent<Arista>().targetT = nodos[nodos[i].parent].esfera.transform;
                 obj.transform.SetParent(transform);//se puede quitar
-            }
-            nodo.esfera.GetComponent<Nodo>().mostrarTexto();//esto debe estar en otro lado
+                nodos[i].esfera.GetComponent<Nodo>().mostrarTexto();//esto debe estar en otro lado
         }
     }
 
