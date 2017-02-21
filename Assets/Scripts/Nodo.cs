@@ -20,18 +20,29 @@ public class Nodo : MonoBehaviour {
     public string title;
     public string filename;
     public Text texto;
+    public GameObject info;//inactivo al inicio
+
     void Start () {
+
     }
     
     void Update () {
     
     }
+
     public void mostrarTexto(){//como este script tiene , los datos dentro, el texto lo debo generar de aqui;el unico dato que se llena al momento es el del orde, que podria recibirloen esta funion o no
         texto = GetComponentInChildren<Text>();
         if(texto){
             string s =  id.ToString();
             texto.text = s;
         }
+    }
+    public void activarInfo(){
+        info.SetActive(true);
+    }
+
+    public void desactivarInfo(){
+        info.SetActive(false);
     }
 }
 //este script va en cada objeto nodo, tambien se usara como si fuera los elementos de la estructura de datos

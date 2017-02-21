@@ -85,6 +85,7 @@ public class AplicationControler : MonoBehaviour {
             RaycastHit hit;
             if(Physics.Raycast(camRay, out hit, rayRange, moveMask)){
                 nodeSelected = hit.collider.GetComponent<Transform>();
+                nodeSelected.GetComponent<Nodo>().activarInfo();
                 seleccionarNodosAfectados(nodeSelected.GetComponent<Nodo>().id);//para la segunda forma
                 selectedNode = true;
                 print("Nodo seleccionado");
@@ -104,6 +105,7 @@ public class AplicationControler : MonoBehaviour {
         }
         else if(Input.GetButtonUp("Fire1") && selectedNode){//aqui debo dejar de actualizr los nodos
             selectedNode = false;
+            nodeSelected.GetComponent<Nodo>().desactivarInfo();
             nodeSelected = null;
             nodosAfectados.Clear();//modificacion a 2 
         }
