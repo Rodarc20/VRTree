@@ -23,16 +23,19 @@ public class AplicationControler : MonoBehaviour {
     public float maxX = 0;
     Transform nodeSelected;//node seleccionado
     bool selectedNode;//para controlar si hay algun nodo seleccionado
+    bool highlightNode;
+    Transform nodeHighlighted;
     List<Transform> nodosAfectados;
 
     void Start(){
         selectedNode = false;
+        highlightNode = false;
         boardMask = LayerMask.GetMask("Board");
         moveMask = LayerMask.GetMask("Move");
         xmlLoader = GetComponent<XmlLoader>();
         if(xmlLoader){
             nodos = xmlLoader.nodos;
-            //aristas = xmlLoader.aristas;
+            aristas = xmlLoader.aristas;//quitar
             print("cargado");
         }
         else{
@@ -78,21 +81,34 @@ public class AplicationControler : MonoBehaviour {
         }
     }
 
-    void FixedUpdate(){//no hay mucha diferencia si solo uso Update()
+
+void FixedUpdate(){//no hay mucha diferencia si solo uso Update()
         //esto es el arrastre, este arrastre se debe aplicar a cada nodo
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*RaycastHit hit2;
+        if(Physics.Raycast(camRay, out hit2, rayRange, moveMask) && !highlightNode){
+            nodeHighlighted = hit2.collider.GetComponent<Transform>();
+            nodeHighlighted.GetComponent<Nodo>().activarInfo();
+            highlightNode = true;
+            //print("Nodo resaltado");
+        }
+        else if(!Physics.Raycast(camRay, out hit2, rayRange, moveMask) && highlightNode){
+            nodeHighlighted.GetComponent<Nodo>().desactivarInfo();
+            highlightNode = false;
+            //print("Nodo no resaltado");
+        }*/
+
         if(Input.GetButtonDown("Fire1") && !selectedNode){//aqui debo detectar si ha dado click sobre algun nodo
-            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(camRay, out hit, rayRange, moveMask)){
                 nodeSelected = hit.collider.GetComponent<Transform>();
-                nodeSelected.GetComponent<Nodo>().activarInfo();
+                //nodeSelected.GetComponent<Nodo>().activarInfo();
                 seleccionarNodosAfectados(nodeSelected.GetComponent<Nodo>().id);//para la segunda forma
                 selectedNode = true;
                 print("Nodo seleccionado");
             }
         }
         else if(Input.GetButton("Fire1") && selectedNode){//aqui debo verificar que haya seleccionado algun nodo, y cambiar la posicion de ese nodo, a la posicion dl cursor
-            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(camRay, out hit, rayRange, boardMask)){
                 Vector3 traslacion = hit.point - nodeSelected.position;
@@ -105,7 +121,7 @@ public class AplicationControler : MonoBehaviour {
         }
         else if(Input.GetButtonUp("Fire1") && selectedNode){//aqui debo dejar de actualizr los nodos
             selectedNode = false;
-            nodeSelected.GetComponent<Nodo>().desactivarInfo();
+            //nodeSelected.GetComponent<Nodo>().desactivarInfo();
             nodeSelected = null;
             nodosAfectados.Clear();//modificacion a 2 
         }

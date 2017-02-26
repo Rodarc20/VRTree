@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<graph description="">
+<source-type value="Corpus"/>
+<projection-technique value="Neighbor Joining (NJ)"/>
+<distance-type value="Cosine-based"/>
+<source-file value="C:\Users\user11\Desktop\ProjectionExplorerForImaging\cbr-ilp.zip"/>
+<number-iterations value="50"/>
+<fraction-delta value="8.0"/>
+<projection-type value="None"/>
+<luhn-lower-cut value="10"/>
+<luhn-upper-cut value="-1"/>
+<number-grams value="1"/>
+<compressor-type value="Bzip2"/>
+<cluster-factor value="4.5"/>
+<number-neighbors value="10"/>
+<number-control-points value="10"/>
+<number-objects value="14"/>
+<number-dimensions value="51"/>
+<dimensionality-reduction value="None"/>
+<resulting-dimensions value="0"/>
+<!--   vertex   -->
+<vertex id="0">
+<valid value="1"/>
+<x-coordinate value="32.34998"/>
+<y-coordinate value="1090.909"/>
+<url value="cbr-ilp/SON_FFontana_HCI_2002.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="A cross-modal electronic travel aid device"/>
+<label name="file name" value="cbr-ilp/SON_FFontana_HCI_2002.txt"/>
+</labels>
+</vertex>
+<vertex id="1">
+<valid value="1"/>
+<x-coordinate value="267.7758"/>
+<y-coordinate value="412.31738"/>
+<url value="cbr-ilp/SON_FredrikWinberg_CHI_2000.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Investigating Auditory Direct Manipulation: Sonifying the Towers of Hanoi"/>
+<label name="file name" value="cbr-ilp/SON_FredrikWinberg_CHI_2000.txt"/>
+</labels>
+</vertex>
+<vertex id="2">
+<valid value="1"/>
+<x-coordinate value="602.38684"/>
+<y-coordinate value="259.04202"/>
+<url value="cbr-ilp/SON_LeonardFoner_MobileNetworksApplications_1999.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Artificial Synesthesia via Sonification: A Wearable Augmented Sensory System"/>
+<label name="file name" value="cbr-ilp/SON_LeonardFoner_MobileNetworksApplications_1999.txt"/>
+</labels>
+</vertex>
+<vertex id="3">
+<valid value="1"/>
+<x-coordinate value="451.01382"/>
+<y-coordinate value="179.88002"/>
+<url value="cbr-ilp/SON_THermann_ICAD_2000.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Principal Curve Sonification"/>
+<label name="file name" value="cbr-ilp/SON_THermann_ICAD_2000.txt"/>
+</labels>
+</vertex>
+<vertex id="4">
+<valid value="1"/>
+<x-coordinate value="402.9372"/>
+<y-coordinate value="632.50287"/>
+<url value="cbr-ilp/SON_EduardoMiranda_SBCM_2003.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="A-Life and Musical Composition: A Brief Survey"/>
+<label name="file name" value="cbr-ilp/SON_EduardoMiranda_SBCM_2003.txt"/>
+</labels>
+</vertex>
+<vertex id="5">
+<valid value="1"/>
+<x-coordinate value="329.50934"/>
+<y-coordinate value="1078.5546"/>
+<url value="cbr-ilp/SON_FredrikKilander_ICAD_2002.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="A WHISPER IN THE WOODS AN AMBIENT SOUNDSCAPE FOR PERIPHERAL AWARENESS OF REMOTE PROCESSES"/>
+<label name="file name" value="cbr-ilp/SON_FredrikKilander_ICAD_2002.txt"/>
+</labels>
+</vertex>
+<vertex id="6">
+<valid value="1"/>
+<x-coordinate value="269.16772"/>
+<y-coordinate value="405.71307"/>
+<url value="cbr-ilp/SON_FredrikWinberg_ICDVRAT_2000.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="The quest for auditory direct manipulation: The sonified Towers of Hanoi"/>
+<label name="file name" value="cbr-ilp/SON_FredrikWinberg_ICDVRAT_2000.txt"/>
+</labels>
+</vertex>
+<vertex id="7">
+<valid value="1"/>
+<x-coordinate value="173.80423"/>
+<y-coordinate value="1027.2686"/>
+<url value="cbr-ilp/SON_KNordby_INTERAC_1995.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="DESIGNING ENVIRONMENTAL SOUNDS BASED ON THE RESULTS OF INTERACTION BETWEEN"/>
+<label name="file name" value="cbr-ilp/SON_KNordby_INTERAC_1995.txt"/>
+</labels>
+</vertex>
+<vertex id="8">
+<valid value="1"/>
+<x-coordinate value="30.0"/>
+<y-coordinate value="1085.5454"/>
+<url value="cbr-ilp/SON_LoriPetrucci_CHI_2000.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="WebSound: a generic Web sonification tool allowing HCI researchers to dynamically create new acc..."/>
+<label name="file name" value="cbr-ilp/SON_LoriPetrucci_CHI_2000.txt"/>
+</labels>
+</vertex>
+<vertex id="9">
+<valid value="1"/>
+<x-coordinate value="366.4771"/>
+<y-coordinate value="789.1033"/>
+<url value="cbr-ilp/SON_SverreHolm_Ultrasonics_1994.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Modelling of the Ultrasound Return from Albunex Microspheres"/>
+<label name="file name" value="cbr-ilp/SON_SverreHolm_Ultrasonics_1994.txt"/>
+</labels>
+</vertex>
+<vertex id="10">
+<valid value="1"/>
+<x-coordinate value="323.99374"/>
+<y-coordinate value="1079.7603"/>
+<url value="cbr-ilp/SON_TeemuLukkari_NORSIG_2004.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Modal Synthesis of Wind Chime Sounds with Stochastic Event Triggering"/>
+<label name="file name" value="cbr-ilp/SON_TeemuLukkari_NORSIG_2004.txt"/>
+</labels>
+</vertex>
+<vertex id="11">
+<valid value="1"/>
+<x-coordinate value="488.93576"/>
+<y-coordinate value="30.0"/>
+<url value="cbr-ilp/SON_THermann_AdvancesIntelligentcomputingmulimediasystems_1999.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Listen to your Data: Model-Based Sonification for Data Analysis"/>
+<label name="file name" value="cbr-ilp/SON_THermann_AdvancesIntelligentcomputingmulimediasystems_1999.txt"/>
+</labels>
+</vertex>
+<vertex id="12">
+<valid value="1"/>
+<x-coordinate value="605.0408"/>
+<y-coordinate value="264.1137"/>
+<url value="cbr-ilp/SON_THermann_ICAD_2001.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="SONIFICATION OF MARKOV CHAIN MONTE CARLO SIMULATIONS"/>
+<label name="file name" value="cbr-ilp/SON_THermann_ICAD_2001.txt"/>
+</labels>
+</vertex>
+<vertex id="13">
+<valid value="1"/>
+<x-coordinate value="494.99072"/>
+<y-coordinate value="32.17882"/>
+<url value="cbr-ilp/SON_ThomasHermann_GestureWorkshop_2001.txt"/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value="Hand Postures for Sonification Control - Extended"/>
+<label name="file name" value="cbr-ilp/SON_ThomasHermann_GestureWorkshop_2001.txt"/>
+</labels>
+</vertex>
+<vertex id="14">
+<valid value="0"/>
+<x-coordinate value="281.06458"/>
+<y-coordinate value="415.42093"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="15">
+<valid value="0"/>
+<x-coordinate value="488.93576"/>
+<y-coordinate value="45.044273"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="16">
+<valid value="0"/>
+<x-coordinate value="456.33643"/>
+<y-coordinate value="191.18939"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="17">
+<valid value="0"/>
+<x-coordinate value="323.99374"/>
+<y-coordinate value="1066.8352"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="18">
+<valid value="0"/>
+<x-coordinate value="42.501007"/>
+<y-coordinate value="1082.6257"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="19">
+<valid value="0"/>
+<x-coordinate value="179.52985"/>
+<y-coordinate value="1015.10284"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="20">
+<valid value="0"/>
+<x-coordinate value="592.6152"/>
+<y-coordinate value="267.01566"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="21">
+<valid value="0"/>
+<x-coordinate value="456.33643"/>
+<y-coordinate value="334.16885"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="22">
+<valid value="0"/>
+<x-coordinate value="291.98538"/>
+<y-coordinate value="923.33887"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="23">
+<valid value="0"/>
+<x-coordinate value="358.30167"/>
+<y-coordinate value="782.43207"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="24">
+<valid value="0"/>
+<x-coordinate value="392.29913"/>
+<y-coordinate value="470.23337"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<vertex id="25">
+<valid value="0"/>
+<x-coordinate value="392.29913"/>
+<y-coordinate value="630.0183"/>
+<url value=""/>
+<scalars>
+<scalar name="..." value="0.0"/>
+<scalar name="cdata" value="0.0"/>
+</scalars>
+<labels>
+<label name="title" value=""/>
+<label name="file name" value=""/>
+</labels>
+</vertex>
+<!--   edges   -->
+<edges name="...">
+</edges>
+<edges name="N-J">
+<edge source="18" target="0" length="0.2227591"/>
+<edge source="18" target="8" length="0.23812702"/>
+<edge source="19" target="7" length="0.20306638"/>
+<edge source="17" target="5" length="0.24887651"/>
+<edge source="17" target="10" length="0.2568416"/>
+<edge source="22" target="17" length="0.10368321"/>
+<edge source="23" target="9" length="0.51822764"/>
+<edge source="25" target="4" length="0.45494652"/>
+<edge source="14" target="1" length="0.16472603"/>
+<edge source="14" target="6" length="0.04332052"/>
+<edge source="24" target="14" length="0.28589982"/>
+<edge source="16" target="3" length="0.29414958"/>
+<edge source="15" target="11" length="0.079795934"/>
+<edge source="15" target="13" length="0.1376206"/>
+<edge source="16" target="15" length="0.08367938"/>
+<edge source="21" target="16" length="0.13615897"/>
+<edge source="20" target="2" length="0.27023634"/>
+<edge source="20" target="12" length="0.24564353"/>
+<edge source="21" target="20" length="0.049587995"/>
+<edge source="24" target="21" length="0.075666785"/>
+<edge source="25" target="24" length="0.016662449"/>
+<edge source="23" target="25" length="0.03910911"/>
+<edge source="22" target="23" length="0.038701236"/>
+<edge source="19" target="22" length="0.10374669"/>
+<edge source="18" target="19" length="0.043842494"/>
+</edges>
+<edges name="KNN-RN-2">
+<edge source="0" target="7" length="0.47068024"/>
+<edge source="0" target="8" length="0.46088612"/>
+<edge source="9" target="0" length="0.9363"/>
+<edge source="10" target="0" length="0.7124142"/>
+<edge source="1" target="6" length="0.20804656"/>
+<edge source="1" target="7" length="0.785027"/>
+<edge source="2" target="6" length="0.58731806"/>
+<edge source="2" target="12" length="0.51587987"/>
+<edge source="3" target="11" length="0.45314133"/>
+<edge source="3" target="13" length="0.5199331"/>
+<edge source="4" target="10" length="0.7667867"/>
+<edge source="4" target="11" length="0.7782057"/>
+<edge source="5" target="7" length="0.5666232"/>
+<edge source="5" target="10" length="0.5057181"/>
+<edge source="6" target="7" length="0.5244997"/>
+<edge source="7" target="8" length="0.48402363"/>
+<edge source="9" target="10" length="0.7502202"/>
+<edge source="12" target="11" length="0.5246871"/>
+<edge source="11" target="13" length="0.21741652"/>
+</edges>
+</graph>

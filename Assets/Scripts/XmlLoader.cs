@@ -16,7 +16,9 @@ public class XmlLoader : MonoBehaviour {
             xmlDoc.LoadXml(System.IO.File.ReadAllText(getPath()));
         }
         else{
-            TextAsset textXml = (TextAsset)Resources.Load("cbr-ilp-ir-son", typeof(TextAsset));
+            //TextAsset textXml = (TextAsset)Resources.Load("1_KDViz", typeof(TextAsset));//no .xml
+            //TextAsset textXml = (TextAsset)Resources.Load("Pcbr-ilp-ir", typeof(TextAsset));//no .xml
+            TextAsset textXml = (TextAsset)Resources.Load("cbr-ilp-ir-son", typeof(TextAsset));//no .xml
             xmlDoc.LoadXml(textXml.text);
         }
     }
@@ -50,7 +52,7 @@ public class XmlLoader : MonoBehaviour {
             nodo.x = float.Parse(xpos.Attributes["value"].InnerXml);//funciona pere debe haber una mejor forma
             XmlNode ypos = vertex.SelectSingleNode("y-coordinate");
             nodo.y = float.Parse(ypos.Attributes["value"].InnerXml);//funciona pere debe haber una mejor forma
-            XmlNode parent = vertex.SelectSingleNode("parent");
+            XmlNode parent = vertex.SelectSingleNode("parent");//aqui falla si no tubiera el atributo parent
             nodo.parent = int.Parse(parent.Attributes["value"].InnerXml);
             nodo.parentDistance = float.Parse(parent.Attributes["distance"].InnerXml);
             nodo.sons = new List<int>();
@@ -74,7 +76,7 @@ public class XmlLoader : MonoBehaviour {
     public List<Edge> loadEdges(){
         XmlNodeList edgesCollection = xmlDoc.GetElementsByTagName("edges");
         foreach (XmlElement item in edgesCollection) {
-            if(item.GetAttribute("name") == "NJ"){
+            if(item.GetAttribute("name") == "N-J"){
                 XmlNodeList edges = item.GetElementsByTagName("edge");
                 foreach(XmlElement arista in edges){
                     Edge edge = new Edge();
@@ -90,7 +92,9 @@ public class XmlLoader : MonoBehaviour {
         return aristas;
     }
     void Awake () {
-        fileName = "cbr-ilp-ir-son.xml";
+        //fileName = "1_KDViz.xml";//.xml
+        //fileName = "Pcbr-ilp-ir.xml";//.xml
+        fileName = "cbr-ilp-ir-son.xml";//.xml
         nodos = new List<Node>();
         aristas = new List<Edge>();
         loadXML();
